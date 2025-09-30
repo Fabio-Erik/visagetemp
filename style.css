@@ -1,0 +1,1258 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    padding: 60px 20px;
+}
+
+/* estado inicial */
+.logo, .topo-2 img{
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: all 0.8s ease-out;
+}
+
+/* estado final */
+.logo.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.topo-2 img.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+
+/* Estado inicial dos links do menu */
+nav ul li a {
+  opacity: 0;
+  transform: translateY(-300px); /* aumenta a distância para o efeito ficar visível */
+  transition: all 1s ease-out;
+}
+
+/* Estado final */
+nav ul li a.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays para sequência */
+nav ul li:nth-child(1) a.show { transition-delay: 0.2s; }
+nav ul li:nth-child(2) a.show { transition-delay: 0.4s; }
+nav ul li:nth-child(3) a.show { transition-delay: 0.6s; }
+nav ul li:nth-child(4) a.show { transition-delay: 0.8s; }
+nav ul li:nth-child(5) a.show { transition-delay: 1s; }
+
+
+section h2,
+section h3 {
+    margin-bottom: 20px;
+}
+
+.fixo {
+    position: absolute;
+}
+
+.whatsapp-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    z-index: 9999;
+}
+
+/* Balão de mensagem */
+.whatsapp-bubble-text {
+    background-color: #90ee90;
+    color: black;
+    padding: 10px 16px;
+    border-radius: 18px;
+    font-size: 14px;
+    font-weight: 700;
+    position: relative;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* Botão do WhatsApp */
+.whatsapp-button {
+    background-color: #25D366;
+    padding: 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    animation: pulse 1.5s infinite;
+}
+
+.whatsapp-button img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Animação pulsante */
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/*Header geral*/
+.topo-1,
+.topo-2 {
+    background: radial-gradient(circle, #333332 0%, black 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.topo-1 .logo {
+    max-width: 90px;
+}
+
+.topo-2 .logo {
+    max-width: 150px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 60px;
+    padding: 20px;
+    /*background: radial-gradient(circle, #333332 0%, black 100%);*/
+    background-color: #000000d3;
+    justify-content: center;
+}
+
+nav ul li a {
+    color: #C49A6C;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: transform 0.4s ease-in-out, color 0.2s ease;
+    padding: 5px 10px;
+}
+
+nav ul li a:hover {
+    color: #f0a658;
+    transform: scale(1.2);
+    
+}
+
+header .hero {
+    text-align: center;
+    padding: 20px;
+    background-color: #000000;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #C49A6C;
+    z-index: -1;
+}
+
+/*Inicio*/
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(48, 47, 47, 0.589);
+    z-index: -2;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.hero-content img {
+    max-width: 700px;
+    border-radius: 10px;
+}
+
+.hero-content p {
+    max-width: 600px;
+    color: #C49A6C;
+    text-align: left;
+}
+
+/* estado inicial */
+.hero h1,
+.hero img,
+.hero p {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+/* direções de entrada */
+.hero h1 {
+  transform: translateX(-100px);
+}
+
+.hero img {
+  transform: translateX(-100px);
+}
+
+.hero p {
+  transform: translateX(100px);
+}
+
+/* estado final (visível) */
+.hero h1.show,
+.hero img.show,
+.hero p.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* delays para sequência */
+.hero h1.show { transition-delay: 0.2s; }
+.hero img.show { transition-delay: 0.6s; }
+.hero p.show   { transition-delay: 1s; }
+
+/*Sobre*/
+#sobre {
+    background: radial-gradient(circle, black 0%, #333332f1 100%);
+}
+
+.sobre-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.sobre-container .clinica {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sobre-container .clinica h1 {
+    font-size: 35px;
+}
+
+.sobre-container .equipe h1 {
+    font-size: 35px;
+    text-align: center;
+}
+
+
+
+/* ===== Clinica carousel - exatamente 4 imagens por vez, sem partes cortadas ===== */
+.clinica-carousel {
+  width: 100%;
+  max-width: 90%;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-sizing: border-box;
+  --clinica-height: 260px;
+  height: var(--clinica-height);
+  display: block;
+}
+
+/* track é uma linha única com itens de largura fixa (25%) */
+.clinica-track {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform 0.6s ease;
+  will-change: transform;
+  box-sizing: border-box;
+}
+
+
+/* cada item ocupa exatamente 25% do container -> 4 por vez, sem cortes */
+.clinica-item {
+  flex: 0 0 25%;
+  box-sizing: border-box;
+  padding: 6px;              /* espaçamento interno entre imagens (não quebra layout) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(var(--clinica-height) - 12px); /* desconta padding vertical do item */
+  position: relative;
+}
+
+/* imagem inteira sem corte */
+.clinica-item img {
+  width: calc(100% - 12px); /* considera o padding do item */
+  height: 100%;
+  object-fit: contain;      /* garante imagem completa (sem cortar) */
+  display: block;
+  z-index: 2;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* brilho branco fraco atrás da imagem */
+.clinica-item::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 92%;
+  height: 86%;
+  background: rgba(255,255,255,0.12);
+  filter: blur(14px);
+  border-radius: 10px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.sobre-container .clinica p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.sobre-container .clinica p {
+    background: rgba(51, 51, 51, 0.877);
+    max-width: 50%;
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgb(255, 255, 255);
+    line-height: 1.5;
+}
+
+
+
+.sobre-container .equipe p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.sobre-container .equipe p {
+    background: rgba(51, 51, 51, 0.877);
+    max-width: 50%;
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgb(255, 255, 255);
+    line-height: 1.5;
+    margin: 0 auto;      /* faz o bloco ficar no centro */
+    text-align: center;  /* alinha o texto dentro do bloco */
+}
+
+
+
+
+
+
+#sobre h1,
+#sobre p {
+    color: #be864a;
+}
+
+.carousel {
+    position: relative;
+    width: 500px;
+    height: 600px;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 0;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+/* Retângulo de legenda */
+.carousel-text {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    text-align: center;
+    color: #fff;
+}
+
+.carousel-text h4,
+.carousel-text p {
+    margin: 5px 0;
+}
+
+/* Bolinhas de navegação */
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.carousel-dots .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carousel-dots .dot.active {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* estado inicial - todos escondidos */
+h1, .equipe img, .ambiente img, p, .carousel {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+/* direções diferentes */
+h1 {
+  transform: translateY(-50px);
+}
+
+.equipe img, .ambiente img {
+  transform: scale(0.9);
+}
+
+p {
+  transform: translateY(50px);
+}
+
+.carousel {
+  transform: translateX(100px);
+}
+
+/* estado final */
+h1.show,
+.equipe img.show,
+.ambiente img.show,
+p.show,
+.carousel.show {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/*Procedimento*/
+#procedimentos {
+    position: relative;
+    background-image: url("./imagem/fundonovo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 80px 20px;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+#procedimentos::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.548);
+    z-index: 1;
+}
+
+.procedimentos {
+    font-size: 40px;
+    color: #be864a;
+}
+
+#procedimentos::before {
+    pointer-events: none;
+}
+
+/* Conteúdo da seção precisa estar acima do overlay */
+#procedimentos>* {
+    position: relative;
+    z-index: 1;
+}
+
+.carousel-procedimentos {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 40px auto;
+}
+
+.carousel-track-proc {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 20px;
+}
+
+.carousel-item-proc {
+    flex: 0 0 calc(33.33% - 20px);
+    background: rgba(0, 0, 0, 0.692);
+ 
+    border-radius: 15px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-item-proc img {
+  width: 350px;
+  height: 400px; /* altura responsiva e uniforme */
+  object-fit: cover;                  /* corta sem distorcer */
+  display: block;
+  border-radius: 10px;
+}
+
+.carousel-item-proc h4 {
+    margin: 10px 0 5px 0;
+    color: #be864a;
+}
+
+.carousel-item-proc p {
+    font-size: 14px;
+    color: #be864a;
+    margin-bottom: 10px;
+}
+
+/* Botões do carrossel */
+.carousel-procedimentos button.prev-proc,
+.carousel-procedimentos button.next-proc {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.carousel-procedimentos button.prev-proc {
+    left: 10px;
+}
+
+.carousel-procedimentos button.next-proc {
+    right: 10px;
+}
+
+.carousel-procedimentos button.prev-proc:hover {
+    background-color: #9c662d;
+}
+
+.carousel-procedimentos button.next-proc:hover {
+    background-color: #9c662d;
+}
+
+
+/* estado inicial */
+#procedimentos h1,
+.carousel-procedimentos {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+/* estado final */
+#procedimentos h1.show,
+.carousel-procedimentos.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*Carrosel*/
+#depoimentos {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+#depoimentos::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #333332 0%, black 100%); 
+    z-index: -2;
+}
+
+.depoimentos-titulo {
+    width: 100%;
+    text-align: center;
+    color: #be864a;
+    font-size: 50px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.video-depoimentos {
+    display: flex;
+    justify-content: center; /* centraliza horizontalmente */
+    align-items: center;     /* alinha verticalmente */
+    width: 100%;
+    gap: 40px;               /* espaço entre os vídeos */
+    padding: 40px 0;         /* distância do topo e base da seção */
+}
+
+.video-depoimentos .video-container {
+    display: flex;
+    justify-content: center; /* centraliza os vídeos dentro do container */
+    gap: 40px;               /* distância entre os vídeos */
+}
+
+.video-depoimentos .video-container video {
+    width: 300px;           /* largura de cada vídeo */
+    aspect-ratio: 1 / 1;    /* quadrado */
+    object-fit: cover;      /* preenche sem deformar */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+
+
+.depoimentos-imagem {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    padding: 0px;
+}
+
+.depoimento-item {
+    width: 400px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.depoimento-item img {
+    max-width: 70%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.depoimento-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ff9c3273, 0 0 30px #ffba7054;
+}
+
+/* Estado inicial */
+#depoimentos h2,
+#depoimentos .video-container,
+#depoimentos .depoimentos-imagem {
+  opacity: 0;
+  transition: all 0.9s ease-out;
+}
+
+/* Direções diferentes */
+#depoimentos h2 {
+  transform: translateY(-50px);
+}
+
+#depoimentos .video-container {
+  transform: translateX(-80px);
+}
+
+#depoimentos .depoimentos-imagem {
+  transform: translateX(80px);
+}
+
+/* Estado final */
+#depoimentos h2.show,
+#depoimentos .video-container.show,
+#depoimentos .depoimentos-imagem.show {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/*Contato*/
+#contato {
+    padding: 50px 20px;
+     background: radial-gradient(circle, black 0%, #333332 100%);
+}
+
+.contato-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-right: 10%;
+}
+
+/* Imagem do doutor */
+.contato-imagem {
+    position: relative;
+    flex: 0 0 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contato-imagem img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+/* Retângulo transparente com texto */
+.mensagem-overlay {
+    margin-top: -45px;
+    color: #9c662d;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.247);
+    padding: 20px;
+    border: 1px solid #be864a;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.541);
+}
+
+/* Formulário */
+.contato-form {
+    margin-top: 10%;
+    flex: 0 0 60%;
+}
+
+.contato-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contato-form input,
+.contato-form textarea {
+    border: none;
+    border-bottom: 2px solid #9e9d9d;
+    border-radius: 0;
+    padding: 10px 5px;
+    font-size: 16px;
+    background-color: transparent;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.contato-form input:focus,
+.contato-form textarea:focus {
+    border-bottom-color: #fda13f;
+}
+
+.contato-form button {
+    display: block;
+    margin: 20px auto;
+    padding: 8px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #fff;
+    color: #be864a;
+    border: 1px solid #fda13f;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contato-form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #fda13f, 0 0 30px #ffb86c;
+}
+
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #be864a;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+    font-family: sans-serif;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.5s, top 0.5s;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    top: 50px;
+}
+
+/* Estado inicial */
+.contato-imagem,
+.contato-imagem .mensagem-overlay,
+#form-contato {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+/* Direções de entrada */
+.contato-imagem,
+.contato-imagem .mensagem-overlay {
+  transform: translateX(-80px);
+}
+
+#form-contato {
+  transform: translateX(80px);
+}
+
+/* Estado final */
+.contato-imagem.show,
+.contato-imagem .mensagem-overlay.show,
+#form-contato.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* Footer geral */
+.footer {
+    background: radial-gradient(circle, #333332 0%, black 100%);
+    color: #b99a78;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center;
+}
+
+.footer-col {
+    flex: 0 0 18%;
+    min-width: 150px;
+}
+
+.footer-col h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+/* Navegação */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin: 6px 0;
+}
+
+/* Links da navegação */
+.footer-col ul li a {
+    text-decoration: none;
+    color: #b99a78;
+    transition: 0.4s;
+}
+
+.footer-col ul li a:hover {
+    color: #f0a658;
+    transform: scale(1.2);
+}
+
+/* Redes sociais */
+.footer-col ul.redes {
+    padding: 0;
+}
+
+.footer-col ul.redes li {
+    margin: 6px 0;
+}
+
+.footer-col ul.redes li a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #b99a78;
+    transition: 0.3s;
+}
+
+.footer-col ul.redes li a img {
+    width: 30px;
+    margin-right: 6px;
+}
+
+.footer-col ul.redes li a:hover {
+    color: #f0a658;
+}
+
+/* Logo */
+.logo-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+}
+
+.logo-footer img {
+    max-width: 250px;
+    border-radius: 100%;
+}
+
+.direito {
+    background: radial-gradient(circle, #333332 0%, black 100%);
+    color: #f0a658;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* Estado inicial: invisível e deslocado para baixo */
+.footer .footer-col {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+/* Estado final */
+.footer .footer-col.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Para dar leve delay entre colunas */
+.footer .footer-col:nth-child(1).show { transition-delay: 0.2s; }
+.footer .footer-col:nth-child(2).show { transition-delay: 0.4s; }
+.footer .footer-col:nth-child(3).show { transition-delay: 0.6s; }
+.footer .footer-col:nth-child(4).show { transition-delay: 0.8s; }
+
+
+
+
+
+
+
+
+
+
+/* Overlay para a imagem */
+.lightbox-img {
+    display: none; /* inicia escondido */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Imagem grande */
+#lightbox-image {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255,255,255,0.5);
+    transition: 0.3s;
+}
+
+/* Botão fechar */
+.lightbox-img .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Setas navegação */
+.lightbox-img .prev,
+.lightbox-img .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 60px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+}
+
+.lightbox-img .prev { left: 30px; }
+.lightbox-img .next { right: 30px; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 900px) {
+
+    :root { --clinica-height: 220px; }
+    
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-content img {
+        max-width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .sobre-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .sobre-container .col {
+        flex: 1 1 90%;
+        text-align: center;
+    }
+
+    .carousel {
+        width: 90%;
+        height: 500px;
+    }
+
+    #depoimentos {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .video-depoimentos,
+    .depoimentos-imagem {
+        max-width: 90%;
+        flex: 1 1 auto;
+    }
+
+    .video-depoimentos .video-container {
+        width: 100%;
+        height: 600px;
+    }
+
+    .depoimento-item {
+        width: 50%;
+        height: auto;
+        margin: 10px auto;
+    }
+
+    .logo-footer img {
+    max-width: 180px;
+    border-radius: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+  /* tablets: 3 visíveis (~33% cada) */
+    .clinica-item { flex: 0 0 30%; }
+    :root { --clinica-height: 240px; }
+    .carousel-item-proc {
+        flex: 0 0 45%;
+    }
+}
+
+@media (max-width: 480px) {
+      /* celulares pequenos: 1 por vez */
+    .clinica-item { flex: 0 0 90%; }
+    :root { --clinica-height: 180px; }
+
+    nav ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 10px;
+        justify-items: center;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .hero-content img {
+        max-width: 100%;
+    }
+
+    #sobre {
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .sobre-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        overflow: visible;
+    }
+
+    .sobre-container .col {
+        flex: 1 1 100%;
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .sobre-container .col img,
+    .sobre-container .col .ambiente,
+    .sobre-container .col .equipe {
+        max-width: 100%;
+    }
+
+    .sobre-container .col h1 {
+        font-size: 25px;
+
+    }
+
+    .sobre-container .col p {
+        font-size: 14px;
+    }
+
+    .carousel {
+        height: 400px;
+    }
+
+    .carousel-item img {
+        object-fit: cover;
+    }
+
+    .carousel-item-proc {
+        flex: 0 0 90%;
+    }
+
+    .video-depoimentos .video-container {
+        height: 450px;
+    }
+
+    .depoimentos-titulo {
+        font-size: 35px;
+    }
+
+    #contato {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        background-color: #f5f5f5;
+    }
+
+    .contato-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 600px;   
+    }
+
+    .contato-form {
+        width: 100%;
+    }
+
+    .contato-imagem {
+        flex: 1 1 100%;
+    }
+
+    .contato-form form input,
+    .contato-form form textarea {
+        width: 100%;
+        font-size: 14px;
+    }
+}
